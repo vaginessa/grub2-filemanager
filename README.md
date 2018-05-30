@@ -114,7 +114,7 @@ efi /grubfm.efi
 *    ZorinOS
 
 ## 源码 
-[GRUB2 File Manager](https://github.com/a1ive/grub2-filemanager)
+[GRUB2 File Manager](https://github.com/a1ive/grub2-filemanager) 
 [GRUB2 MOD](https://github.com/a1ive/grub2-mod) 
 
 ## 相似项目 

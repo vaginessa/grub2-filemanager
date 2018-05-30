@@ -10,3 +10,10 @@ theme: jekyll-theme-midnight
 markdown: kramdown
 kramdown:
   input: GFM
+ exclude:
+  - Gemfile
+  - Gemfile.lock
+  - NTBOOT.NT6
+  - NTBOOT.PE1
+  - wimboot
+  - oscdimg.exe
