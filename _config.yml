@@ -19,4 +19,4 @@ exclude:
   - oscdimg.exe
 
 # Theme settings
-show_downloads: true
+show_downloads: false
