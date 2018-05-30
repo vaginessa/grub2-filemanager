@@ -1,40 +1,50 @@
 # grub2-filemanager 
+基于 GRUB 2 Lua 5.1 的文件管理器。
 ## 预览 
 ![preview.png](https://github.com/a1ive/grub2-filemanager/raw/gh-pages/preview.png)
+## 功能 
+1. 启动 efi,iso,img,Linux kernel,Multiboot kernel 文件
+2. 挂载 iso,img,tar,gz,xz 查看内容 
+3. 查看文本文件内容, 支持 GBK/UTF-8 编码 
+4. 浏览 jpg,png,tga 图片 
+5. 加载 GRUB 2,Syslinux 菜单 
+6. 执行 Lua 脚本 
 ## 下载 
 https://github.com/a1ive/grub2-filemanager/releases 
-## 构建
+## 构建 
+### Linux 
 ```shell
-	git clone https://github.com/a1ive/grub2-filemanager.git
-	cd grub2-filemanager
-	./build.sh
+git clone https://github.com/a1ive/grub2-filemanager.git
+cd grub2-filemanager
+wget -O legacy/ntboot/NTBOOT.MOD/NTBOOT.NT6 https://github.com/a1ive/grub2-filemanager/raw/gh-pages/NTBOOT.NT6
+wget -O legacy/ntboot/NTBOOT.MOD/NTBOOT.PE1 https://github.com/a1ive/grub2-filemanager/raw/gh-pages/NTBOOT.PE1
+wget -O legacy/wimboot https://github.com/a1ive/grub2-filemanager/raw/gh-pages/wimboot
+./build.sh
 ```
 ## 启动 
-### i386-pc 
 不要使用 memdisk 加载 grubfm.iso !  
-#### GRUB4DOS 
+### GRUB4DOS 
 ```
-	map --mem /grubfm.iso (0xff)
-	map --hook
-	chainloader (0xff)
+map --mem /grubfm.iso (0xff)
+map --hook
+chainloader (0xff)
 ```
-#### GRUB 2
+### GRUB 2
 ```
-	set cfgfile="find --set-root /grubfm.iso;map --mem /grubfm.iso (0xff);map --hook;chainloader (0xff);boot"
-	linux /grub.exe --config-file=$cfgfile
+if [ "${grub_platform}" = "pc" ]; then
+  set cfgfile="find --set-root /grubfm.iso;map --mem /grubfm.iso (0xff);map --hook;chainloader (0xff);boot"
+  linux /grub.exe --config-file=$cfgfile
+else
+  chainloader /grubfm.efi
+fi
 ```
-### x86_64-efi, i386-efi 
-#### GRUB 2 
+### rEFInd 
 ```
-	chainloader /grubfm.efi
+loader /grubfm.efi
 ```
-#### rEFInd 
+### Systemd-boot 
 ```
-	loader /grubfm.efi
-```
-#### Systemd-boot 
-```
-	efi /grubfm.efi
+efi /grubfm.efi
 ```
 ## 支持的发行版列表 
 *    4MLinux
