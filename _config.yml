@@ -1,6 +1,10 @@
+# Site settings
+title: GRUB2 File Manager
+description: >
+  基于 GRUB 2 Lua 5.1 的文件管理器.
+
+# Build settings
 theme: jekyll-theme-midnight
-
 markdown: kramdown
-
 kramdown:
   input: GFM

@@ -1,9 +1,7 @@
-# grub2-filemanager 
-基于 GRUB 2 Lua 5.1 的文件管理器。
-## 预览 
+# 预览 
 ![preview.png](https://github.com/a1ive/grub2-filemanager/raw/gh-pages/preview.png)
 
-## 功能 
+# 功能 
 1. 启动 efi,iso,img,Linux kernel,Multiboot kernel 文件
 2. 挂载 iso,img,tar,gz,xz 查看内容 
 3. 查看文本文件内容, 支持 GBK/UTF-8 编码 
@@ -11,11 +9,11 @@
 5. 加载 GRUB 2,Syslinux 菜单 
 6. 执行 Lua 脚本 
 
-## 下载 
+# 下载 
 [Releases](https://github.com/a1ive/grub2-filemanager/releases) 
 
-## 构建 
-### Linux 
+# 构建 
+## Linux 
 ```shell
 git clone https://github.com/a1ive/grub2-filemanager.git
 cd grub2-filemanager
@@ -25,15 +23,15 @@ wget -O legacy/wimboot https://github.com/a1ive/grub2-filemanager/raw/gh-pages/w
 ./build.sh
 ```
 
-## 启动 
+# 启动 
 不要使用 memdisk 加载 grubfm.iso !  
-### GRUB4DOS 
+## GRUB4DOS 
 ```
 map --mem /grubfm.iso (0xff)
 map --hook
 chainloader (0xff)
 ```
-### GRUB 2
+## GRUB 2
 ```
 if [ "${grub_platform}" = "pc" ]; then
   set cfgfile="find --set-root /grubfm.iso;map --mem /grubfm.iso (0xff);map --hook;chainloader (0xff);boot"
@@ -42,16 +40,16 @@ else
   chainloader /grubfm.efi
 fi
 ```
-### rEFInd 
+## rEFInd 
 ```
 loader /grubfm.efi
 ```
-### Systemd-boot 
+## Systemd-boot 
 ```
 efi /grubfm.efi
 ```
 
-## 支持的发行版列表 
+# 支持的发行版列表 
 *    4MLinux
 *    Acronis True Image
 *    Android-x86(6.0+)
@@ -114,10 +112,10 @@ efi /grubfm.efi
 *    Xubuntu
 *    ZorinOS
 
-## 源码 
+# 源码 
 GRUB2-MOD: https://github.com/a1ive/grub2-mod 
 
-## 相似项目 
+# 相似项目 
 *	[Multiboot USB](http://mbusb.aguslr.com/) 
 *	[grub-iso-boot](https://github.com/Jimmy-Z/grub-iso-boot) 
 *	[grub-iso-multiboot](https://github.com/mpolitzer/grub-iso-multiboot) 
