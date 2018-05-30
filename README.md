@@ -9,6 +9,7 @@
 4. 浏览 jpg,png,tga 图片 
 5. 加载 GRUB 2,Syslinux 菜单 
 6. 执行 Lua 脚本 
+
 ## 下载 
 https://github.com/a1ive/grub2-filemanager/releases 
 ## 构建 
