@@ -4,26 +4,38 @@
 ## 下载 
 https://github.com/a1ive/grub2-filemanager/releases 
 ## 构建
+```shell
 	git clone https://github.com/a1ive/grub2-filemanager.git
 	cd grub2-filemanager
 	./build.sh
+```
 ## 启动 
 ### i386-pc 
 不要使用 memdisk 加载 grubfm.iso !  
 #### GRUB4DOS 
+```
 	map --mem /grubfm.iso (0xff)
 	map --hook
 	chainloader (0xff)
+```
 #### GRUB 2
+```
 	set cfgfile="find --set-root /grubfm.iso;map --mem /grubfm.iso (0xff);map --hook;chainloader (0xff);boot"
 	linux /grub.exe --config-file=$cfgfile
+```
 ### x86_64-efi, i386-efi 
 #### GRUB 2 
+```
 	chainloader /grubfm.efi
+```
 #### rEFInd 
+```
 	loader /grubfm.efi
+```
 #### Systemd-boot 
+```
 	efi /grubfm.efi
+```
 ## 支持的发行版列表 
 *    4MLinux
 *    Acronis True Image
